@@ -1,12 +1,12 @@
-name: Daily Scraping Anime Timetable
+name: Daily Scraping Airing Anime Schedule
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # every 7 minutes
+    - cron: '0 6 * * *'  # everyday at 06:00
 
 
 jobs:
-  anime-scrape:
+  schedule-scrape:
     runs-on: macos-latest
     env:
       ATLAS_URL: ${{ secrets.ATLAS_URL }}
