@@ -32,9 +32,6 @@ anime_timetable <- data.frame(date = date,
 #================ Connect to Database ================#
 # uncomment for cloud DB connection
 message("Connect to MongoDB Cloud")
-collection <- "ongoing"
-db <- "anime"
-url <- "mongodb://localhost:27017/"
 atlas <- mongo(
   collection = Sys.getenv("ATLAS_COLLECTION"),
   db         = Sys.getenv("ATLAS_DB"),
