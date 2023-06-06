@@ -2,7 +2,7 @@ name: Daily Scraping Airing Anime Schedule
 
 on:
   schedule:
-    - cron: '* * * * *'  # everyday at 15:37
+    - cron: '*/10 * * * *'  # everyday 10 minutes
 
 
 jobs:
