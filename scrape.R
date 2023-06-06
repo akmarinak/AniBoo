@@ -1,31 +1,48 @@
-# Set library ----
+#==================== Set library ====================#
 message("Load the libraries")
 library(rvest)
 library(mongolite)
+library(stringr)
 
-# List of covid sites
-# https://news.google.com/covid19/map
-# https://www.worldometers.info/coronavirus/country/indonesia/
-# https://corona.jakarta.go.id/id/data-pemantauan
-# https://kawalcovid19.id/
-# https://covid19.go.id/peta-sebaran
+#==================== Anime Sites ====================#
+# https://anidb.net/anime/schedule
 
+#=================== Scraping Code ===================#
 message("Define function to scrape OP character")
-url <- "https://www.worldometers.info/coronavirus/country/indonesia/"
+url <- "https://anidb.net/anime/schedule"
 html <- read_html(url)
-count <- html_text(html_nodes(html, ".maincounter-number"), trim=T)
 
+anime_today <- html %>%
+  html_element(".g_section.content.today") %>%
+  html_elements(".name-colored") %>%
+  html_text() %>% c()
 
+date_today <- html %>%
+  html_element(".g_section.content.today") %>%
+  html_elements(".v_high") %>%
+  html_text()
+
+title <- str_trim(gsub(" - [0-9]*$", " ", anime_today), side="both")
+episode <- str_trim(sub(".*-", "", anime_today), side="both")
+date <- gsub("(.*),.*", "\\1", date_today)
+
+anime_timetable <- data.frame(date = date, 
+                              title = title, 
+                              episode = episode)
+#================ Connect to Database ================#
+# uncomment for cloud DB connection
 message("Connect to MongoDB Cloud")
+collection <- "ongoing"
+db <- "anime"
+url <- "mongodb://localhost:27017/"
 atlas <- mongo(
   collection = Sys.getenv("ATLAS_COLLECTION"),
   db         = Sys.getenv("ATLAS_DB"),
   url        = Sys.getenv("ATLAS_URL")
 )
 
-# covid <- data.frame(no=integer(), cases=character(), deaths=character(), recovered=character())
+#=============== Store into Dataframe ================#
 message("Store data frame into mongo cloud")
-newcovid <- data.frame(no = atlas$count() + 1, cases = count[1], deaths = count[2], recovered = count[3])
-atlas$insert(newcovid)
-
+today <- data.frame(anime_timetable)
+atlas$insert(today)
 atlas$disconnect()
