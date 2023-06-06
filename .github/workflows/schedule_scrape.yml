@@ -2,7 +2,7 @@ name: Daily Scraping Airing Anime Schedule
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # everyday at 06:00
+    - cron: '37 15 * * *'  # everyday at 15:37
 
 
 jobs:
@@ -21,5 +21,7 @@ jobs:
         run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
       - name: Install rvest package
         run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'        
+      - name: Install stringr package
+        run: Rscript -e 'install.packages("stringr", dependencies = TRUE)' 
       - name: Scrape data 
         run: Rscript scrape.R
