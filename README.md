@@ -1,13 +1,19 @@
-# Daily Scraping Anime Timetable
+<h1 align="center">Daily Scraping Project: Anime Timetable</h1>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+# About
 
-## Deskripsi 
+This project is an integration of R - MongoDb - Python. Anime Daily Timetable were scrapped from [AniDB](https://anidb.net/anime/schedule) and saved in MongoDB. The information then shown in a streamlit App.
+
+# Preview
+
+(link web app)
+
+# MongoDB
 
 Menceritakan tentang situs web yang discraping.
 
 
-## Contoh dokumen 
+# Contoh dokumen 
 
 Berikut ini adalah contoh dokumen pada koleksi MongoDB yang sudah tersimpan
 
