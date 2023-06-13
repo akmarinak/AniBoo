@@ -1,4 +1,4 @@
-name: Daily Scraping Airing Anime Schedule
+name: Daily Scraping Anime Data
 
 on:
   schedule:
