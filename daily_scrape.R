@@ -2,8 +2,6 @@
 message("Load the libraries")
 library(rvest)
 library(mongolite)
-library(stringr)
-library(ggplot2)
 library(tidyr)
 library(plyr)
 library(stringr)
