@@ -144,37 +144,6 @@ top_movie <- movie %>% select(-c("Your.Score", "Status", "num_of_members"))
 top_movie[, cols] <- colwise(str_trim)(top_movie[, cols])
 
 #=========================== Connect to Database ==============================#
-# Local DB Connection
-ongoing_col <- mongo(
-  collection = "ongoing",
-  db         = "anime",
-  url        = "mongodb://localhost:27017/"
-)
-
-topair_col <- mongo(
-  collection = "top_airing",
-  db         = "anime",
-  url        = "mongodb://localhost:27017/"
-)
-
-topup_col <- mongo(
-  collection = "top_upcoming",
-  db         = "anime",
-  url        = "mongodb://localhost:27017/"
-)
-
-toptv_col <- mongo(
-  collection = "top_tv",
-  db         = "anime",
-  url        = "mongodb://localhost:27017/"
-)
-
-topmov_col <- mongo(
-  collection = "top_movie",
-  db         = "anime",
-  url        = "mongodb://localhost:27017/"
-)
-
 # Cloud DB connection
 message("Connect to MongoDB Atlas")
 
