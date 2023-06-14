@@ -3,7 +3,11 @@ message("Load the libraries")
 library(rvest)
 library(mongolite)
 library(stringr)
+library(ggplot2)
 library(tidyr)
+library(tidyverse)
+library(xml2)
+library(lubridate)
 
 #=============================== Get The Page =================================#
 message("Get the page for each month")
@@ -95,15 +99,15 @@ anime_db <- anime %>%
 # uncomment for local DB connection
 message("Connect to MongoDB Atlas")
 
-# ongoing_col <- mongo(
-#   collection = Sys.getenv("ONGOING_COLLECTION"),
-#   db         = Sys.getenv("ANIME_DATABASE"),
-#   url        = Sys.getenv("ATLAS_URL")
-# )
+info_col <- mongo(
+  collection = Sys.getenv("INFORMATION_COLLECTION"),
+  db         = Sys.getenv("ANIME_DATABASE"),
+  url        = Sys.getenv("ATLAS_URL")
+)
 
 #============================= Store to Database ============================#
-message("Store (Monthly Replace) data frame into mongo cloud")
-# documents stored in the collection will be replaced monthly due to regular update
-atlas$remove('{}')
-atlas$insert(anime_db)
-atlas$disconnect()
+message("Store (Weekly Replace) data frame into mongo cloud")
+# documents stored in the collection will be replaced weekly due to regular update
+anime_info$remove('{}')
+anime_info$insert(anime_db)
+anime_info$disconnect()
