@@ -35,6 +35,6 @@ jobs:
       - name: Install X11 dependencies on MacOS
         if: runner.os == 'macOS'
         run: |
-          brew --cask install xquartz
+          brew install xquartz
       - name: Scrape data 
         run: Rscript weekly_scrape.R
