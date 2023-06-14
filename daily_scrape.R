@@ -2,9 +2,12 @@
 message("Load the libraries")
 library(rvest)
 library(mongolite)
+library(stringr)
 library(tidyr)
 library(plyr)
 library(stringr)
+library(tidyverse)
+library(xml2)
 
 #=============================== Anime Sites ===================================#
 url1 = "https://anidb.net/anime/schedule"
@@ -40,10 +43,10 @@ today_poster <- html1 %>%
   html_nodes(".g_image.g_bubble.thumb") %>%
   html_attr("src")
 
-anime_timetable <- data.frame(date = today_date, 
-                              title = today_title, 
-                              episode = today_episode,
-                              poster = gsub("-thumb.jpg", "", today_poster))
+anime_schedule <- data.frame(date = today_date, 
+                             title = today_title, 
+                             episode = today_episode,
+                             poster = gsub("-thumb.jpg", "", today_poster))
 
 #-------------------------------Top Airing Anime-------------------------------#
 airing <- html2 %>%
@@ -178,7 +181,8 @@ topmov_col <- mongo(
 #=========================== Store into Dataframe =============================#
 message("Store data frame into mongo cloud")
 # Ongoing Collection
-ongoing_col$insert(anime_timetable)
+ongoing_col$remove('{}')
+ongoing_col$insert(anime_schedule)
 # Top Airing Collection
 topair_col$remove('{}')
 topair_col$insert(top_airing)
