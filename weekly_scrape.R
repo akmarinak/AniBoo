@@ -95,9 +95,9 @@ anime_db <- anime %>%
   select(-c(dates, rate, types))
 
 #============================= Connect to Database ============================#
-# uncomment for local DB connection
-message("Connect to MongoDB Atlas")
 
+# Cloud DB Connection
+message("Connect to MongoDB Atlas")
 info_col <- mongo(
   collection = Sys.getenv("INFORMATION_COLLECTION"),
   db         = Sys.getenv("ANIME_DATABASE"),
@@ -107,6 +107,6 @@ info_col <- mongo(
 #============================= Store to Database ============================#
 message("Store (Weekly Replace) data frame into mongo cloud")
 # documents stored in the collection will be replaced weekly due to regular update
-anime_info$remove('{}')
-anime_info$insert(anime_db)
-anime_info$disconnect()
+info_col$remove('{}')
+info_col$insert(anime_db)
+info_col$disconnect()
