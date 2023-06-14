@@ -32,5 +32,9 @@ jobs:
         run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)' 
       - name: Install lubridate package
         run: Rscript -e 'install.packages("lubridate", dependencies = TRUE)' 
+      - name: Install X11 dependencies on MacOS
+        if: runner.os == 'macOS'
+        run: |
+          brew --cask install xquartz
       - name: Scrape data 
         run: Rscript weekly_scrape.R
