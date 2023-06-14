@@ -2,7 +2,7 @@ name: Daily Scraping Anime Data
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # everyday at 7 AM GMT+7
+    - cron: '*/10 * * * *'  # everyday at 7 AM GMT+7
 
 
 jobs:
@@ -30,7 +30,11 @@ jobs:
         run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
       - name: Install tidyr package
         run: Rscript -e 'install.packages("tidyr", dependencies = TRUE)' 
-      - name: Install plyr package
-        run: Rscript -e 'install.packages("plyr", dependencies = TRUE)' 
+      - name: Install tidyverse package
+        run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)' 
+      - name: Install xml2 package
+        run: Rscript -e 'install.packages("xml2", dependencies = TRUE)' 
+      - name: Install lubridate package
+        run: Rscript -e 'install.packages("lubridate", dependencies = TRUE)' 
       - name: Scrape data 
         run: Rscript daily_scrape.R
