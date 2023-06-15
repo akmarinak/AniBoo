@@ -2,7 +2,7 @@ name: Weekly Scraping Anime Data
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # every wednesday at 20.45 GMT+7
+    - cron: '0 0 * * *'  # every wednesday at 20.45 GMT+7
 
 
 jobs:
