@@ -68,7 +68,6 @@ for (i in 1:nrow(pages)){
 }
 # combine the stored data for each loop into one data frame
 anime = do.call(rbind, datalist)
-View(anime)
 
 #=========================== Tidying Data Frame ===============================#
 message("clean and organize the columns in anime data frame")
