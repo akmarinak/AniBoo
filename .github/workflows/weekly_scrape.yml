@@ -7,7 +7,7 @@ on:
 
 jobs:
   schedule-scrape:
-    runs-on: macOS
+    runs-on: macos-latest
     env:
       INFORMATION_COLLECTION: ${{ secrets.INFORMATION_COLLECTION }}
       ANIME_DATABASE: ${{ secrets.ANIME_DATABASE }}
