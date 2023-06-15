@@ -7,7 +7,7 @@ on:
 
 jobs:
   schedule-scrape:
-    runs-on: macos-latest
+    runs-on: macOS
     env:
       INFORMATION_COLLECTION: ${{ secrets.INFORMATION_COLLECTION }}
       ANIME_DATABASE: ${{ secrets.ANIME_DATABASE }}
@@ -33,6 +33,6 @@ jobs:
       - name: Install lubridate package
         run: Rscript -e 'install.packages("lubridate", dependencies = TRUE)' 
       - name: Install X11 dependencies on MacOS
-        run: brew install xquartz
+        run: brew install xquartz --cask
       - name: Scrape data 
         run: Rscript weekly_scrape.R
