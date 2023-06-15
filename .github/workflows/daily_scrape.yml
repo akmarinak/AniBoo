@@ -2,7 +2,7 @@ name: Daily Scraping Anime Data
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # everyday at 7 AM GMT+7
+    - cron: '*0 0 * * *'  # everyday at 7 AM GMT+7
 
 
 jobs:
