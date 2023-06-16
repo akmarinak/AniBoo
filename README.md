@@ -61,12 +61,7 @@ Akmarina Khairunnisa - akmarinakhairunnisa@gmail.com
 
 Project Link: [https://github.com/akmarinak/anime_schedule](https://github.com/akmarinak/anime_schedule)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 # Document Sample
