@@ -35,9 +35,9 @@ Anime Airing Schedule, and Top Rated Anime in Some Categories were scrapped dail
 
 
 
-### Built With
+### Acknowledgement
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This project were built with:
 
 * [![mongodb][mongodb-shield]][mongodb-url]
 * [![R][r-shield]][r-url]
