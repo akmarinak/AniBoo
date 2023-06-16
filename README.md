@@ -18,7 +18,7 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/akmarinak/anime_schedule/issues">View Dashboard</a>
+    <a href="https://akmarinak98.shinyapps.io/aniboo/">View Dashboard</a>
     ·
     <a href="https://github.com/akmarinak/anime_schedule/issues">Report Issues</a>
     <br />
@@ -27,7 +27,7 @@
 
 
 ## About The Project
-This is a **Dashboard** for you -_weeaboo_ to track and monitor The **Released** and **Upcoming** Anime Information. Real-time data from multiple sources were combined to support this dashboard.
+This is a [**Dashboard**](https://akmarinak98.shinyapps.io/aniboo/) for you -_weeaboo_ to track and monitor The **Released** and **Upcoming** Anime Information. Real-time data from multiple sources were combined to support this dashboard.
 This project integrate R for data scraping, MongoDb for data storage, and Shiny for data display. 
 Anime Airing Schedule, and Top Rated Anime in Some Categories were scrapped daily from [AniDB](https://anidb.net/anime/schedule) and [MyAnimeList](https://myanimelist.net). Anime Information from 2015 - present are available with weekly update. Collected data is stored in MongoDB and then shown in ShinyApp.
 
