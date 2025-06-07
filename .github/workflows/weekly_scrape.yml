@@ -1,38 +1,38 @@
-# name: Weekly Scraping Anime Data
+name: Weekly Scraping Anime Data
 
-# on:
-#   schedule:
-#     - cron: '0 0 * * SUN'  # every sunday at 7 AM GMT+7
+on:
+  schedule:
+    - cron: '0 0 * * SUN'  # every sunday at 7 AM GMT+7
 
 
-# jobs:
-#   schedule-scrape:
-#     runs-on: macos-latest
-#     env:
-#       INFORMATION_COLLECTION: ${{ secrets.INFORMATION_COLLECTION }}
-#       ANIME_DATABASE: ${{ secrets.ANIME_DATABASE }}
-#       ATLAS_URL: ${{ secrets.ATLAS_URL }}
+jobs:
+  schedule-scrape:
+    runs-on: macos-latest
+    env:
+      INFORMATION_COLLECTION: ${{ secrets.INFORMATION_COLLECTION }}
+      ANIME_DATABASE: ${{ secrets.ANIME_DATABASE }}
+      ATLAS_URL: ${{ secrets.ATLAS_URL }}
 
-#     steps:
-#       - name: Start time
-#         run: echo "$(date) ** $(TZ=Asia/Jakarta date)"
-#       - uses: actions/checkout@v3
-#       - uses: r-lib/actions/setup-r@v2
-#       - name: Install mongolite package
-#         run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
-#       - name: Install rvest package
-#         run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'        
-#       - name: Install stringr package
-#         run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
-#       - name: Install tidyr package
-#         run: Rscript -e 'install.packages("tidyr", dependencies = TRUE)' 
-#       - name: Install xml2 package
-#         run: Rscript -e 'install.packages("xml2", dependencies = TRUE)'
-#       - name: Install tidyverse package
-#         run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)' 
-#       - name: Install lubridate package
-#         run: Rscript -e 'install.packages("lubridate", dependencies = TRUE)' 
-#       - name: Install X11 dependencies on MacOS
-#         run: brew install xquartz
-#       - name: Scrape data 
-#         run: Rscript weekly_scrape.R
+    steps:
+      - name: Start time
+        run: echo "$(date) ** $(TZ=Asia/Jakarta date)"
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
+      - name: Install mongolite package
+        run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
+      - name: Install rvest package
+        run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'        
+      - name: Install stringr package
+        run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
+      - name: Install tidyr package
+        run: Rscript -e 'install.packages("tidyr", dependencies = TRUE)' 
+      - name: Install xml2 package
+        run: Rscript -e 'install.packages("xml2", dependencies = TRUE)'
+      - name: Install tidyverse package
+        run: Rscript -e 'install.packages("tidyverse", dependencies = TRUE)' 
+      - name: Install lubridate package
+        run: Rscript -e 'install.packages("lubridate", dependencies = TRUE)' 
+      - name: Install X11 dependencies on MacOS
+        run: brew install xquartz
+      - name: Scrape data 
+        run: Rscript weekly_scrape.R
